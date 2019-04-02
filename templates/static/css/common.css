@@ -13,8 +13,9 @@
   
   /* header */
   .header {
-    background:#212121;
+    background:white;
     margin-bottom:15px;
+    border-bottom:5px solid #3081ff;
   }
   
   /* footer */
@@ -80,10 +81,14 @@
     padding:12px 10px 10px 13px;
     margin: 0 auto;
   }
+  .site-description {
+    max-width:960px;
+    width:100%;
+    margin: 0 auto;
+  }
   h1 a, h1 a:visited {
-    color:white;
     text-decoration:none;
-    color:white;
+    color:#0f213d;
   }
   h2 {
     font-size:23px;
@@ -145,7 +150,7 @@
     box-shadow: 0 0 3px rgba(0,0,0,.1);
   }
   .side-list-title {
-    background:#222;
+    background:#3081ff;
     color:white;
     font-weight:bold;
     padding: 7px 0px 5px 0px;
