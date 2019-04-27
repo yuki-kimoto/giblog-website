@@ -101,11 +101,11 @@
     color:#000;
   }
   h3 {
-    font-size:18px;
+    font-size:20px;
     border-left:7px solid #ffad49;
     padding:6px 0px 4px 12px;
-    letter-spacing:0.5px;
-    margin:15px 0 10px 0;
+    letter-spacing:1px;
+    margin:20px 0 10px 0;
   }
   h4 {
     font-size:17px;
@@ -138,6 +138,28 @@
     margin:10px 0;
     line-height:1.5;
   }
+
+	table {
+		border-collapse: collapse;
+		margin-left:15px;
+	}
+
+	table th {
+		border:1px solid #ddd;
+	  padding:7px;
+	  background:#efe;
+	  font-weight:bold;
+	}
+
+	table td {
+		border:1px solid #ddd;
+	  padding:7px;
+	}
+	
+	table i {
+	  color:green;
+	  font-weight:bold;
+	}
   
   /* advanced */
   .day {
