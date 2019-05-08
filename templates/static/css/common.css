@@ -58,7 +58,7 @@
     border:1px solid #C0C0C0;
     background:white;
     box-shadow: 0 0 3px rgba(0,0,0,.1);
-    padding:15px 25px;
+    padding:15px 15px;
     margin-bottom:10px;
   }
   .entry li {
@@ -101,11 +101,11 @@
     color:#000;
   }
   h3 {
-    font-size:20px;
+    font-size:22px;
     border-left:7px solid #ffad49;
     padding:6px 0px 4px 12px;
-    letter-spacing:1px;
-    margin:20px 0 10px 0;
+    letter-spacing:1.5px;
+    margin:30px 0 10px 0;
   }
   h4 {
     font-size:17px;
@@ -119,6 +119,7 @@
     color:#111;
     margin:10px 0;
     line-height:1.5;
+    padding:0 15px;
   }
   pre {
     font-size:16px;
@@ -189,7 +190,7 @@
     list-style:none;
     background:white;
     border-bottom:1px solid #ccc;
-    padding:7px 10px 5px 10px;
+    padding:7px 15px 5px 15px;
   }
   .side li:last-child {
     border-bottom:none;
