@@ -48,6 +48,9 @@ sub run {
     # Parse description
     $api->parse_description_from_first_p_tag($data);
 
+    # Get first image src
+    $api->parse_first_img_src($data);
+
     # Read common templates
     $api->read_common_templates($data);
     
@@ -56,6 +59,32 @@ sub run {
 
     # Add meta description
     $api->add_meta_description($data);
+
+    # Twitter card
+    {
+      my $meta = $data->{meta};
+      
+      my $site_url = $config->{site_url};
+      my $title = $data->{title} || '';
+      my $description = $data->{description} || '';
+      my $img_src = $data->{img_src};
+      
+      my $twitter_card = <<"EOS";
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="\@perlzemi" />
+<meta name="twitter:title" content="$title" />
+<meta name="twitter:description" content="$description" />
+EOS
+      if (defined $img_src) {
+        $twitter_card .= <<"EOS";
+<meta name="twitter:image" content="$site_url$img_src" />
+EOS
+      }
+      
+      $meta .= "\n$twitter_card\n";
+      
+      $data->{meta} = $meta;
+    }
 
     # Build entry html
     $api->build_entry($data);
