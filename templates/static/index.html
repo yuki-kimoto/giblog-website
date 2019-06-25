@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Giblog - サイト・ブログを作成してGitで管理</title>
+    <title>Giblog公式サイト - WebサイトをGitで管理</title>
     <link rel="icon" type="image/x-icon" href="/images/giblog-favicon.png">
   </head>
 <style>
@@ -11,6 +11,7 @@
     box-sizing: border-box;
     -webkit-text-size-adjust:100%;
     font-weight:normal;
+    font-size:18px;
   }
   .header {
     max-width:100%;
@@ -24,7 +25,7 @@
   .index-head {
     text-align:center;
     background:#009D82;
-    padding:80px 0 90px 0;
+    padding:80px 0 70px 0;
   }
   .index-head h2 {
     color:white;
@@ -32,10 +33,23 @@
     letter-spacing:1.5px;
   }
 
+  .content {
+    max-width:960px;
+    width:100%;;
+    margin:0 auto -10px auto;
+    padding:0px 0 0px 0;
+  }
+
+  h3 {
+    font-size:34px;
+    letter-spacing:1.5px;
+  }
+
   .index-head-description {
     color:white;
     font-size:22px;
     letter-spacing:1px;
+    margin-top:5px;
   }
   
   .index-start {
@@ -57,15 +71,21 @@
 </style>
 
 <div class="header">
-  <img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト">
+  <img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:middle;">
+  <a style="font-size:15px;text-decoration:none;color:#666"href="https://docjp.giblog.net/">ドキュメント</a>
 </div>
 <div class="index-head">
   <h2>Giblogのご紹介</h2>
   <div class="index-head-description">
-    GiblogはGitで管理できるサイト・ブログを作るためのツールです。
+    GiblogはGitで管理できるサイト・ブログを作成するためのツールです。
   </div>
 </div>
-
+<div class="content" style="max-width:680px;width">
+  <h3 style="margin:30px 0 20px 0">Giblogで作ったWebサイトをGitで管理すると、複数のWebサイト運営が楽になります。</h3>
+  <div style="color:#111">
+    「ここだけ置換したいんだけど」「バックアップ大変だなぁ」「ローカル環境で編集したい」を解決します。
+  </div>
+</div>
 <div class="index-start">
   <a href="/doc.html">Giblogをはじめよう</a>
 </div>
