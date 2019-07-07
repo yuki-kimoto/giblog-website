@@ -16,8 +16,7 @@
   /* header */
   .header {
     background:white;
-    margin-bottom:15px;
-    border-bottom:5px solid #00A78B;
+    border-bottom:5px solid #009D82;
   }
   .header-content {
     width:860px;
@@ -66,6 +65,7 @@
     padding:15px 30px;
     margin-bottom:10px;
     border-radius:4px;
+    margin-top:15px;
   }
   .entry li {
     margin-left:25px;
@@ -112,7 +112,7 @@
     border-left:7px solid #00977B;
     padding:6px 0px 4px 12px;
     letter-spacing:1.5px;
-    margin:30px 0 10px 0;
+    margin:30px auto 10px auto;
   }
   h4 {
     font-size:17px;
@@ -221,6 +221,7 @@
     border:none;
     margin-bottom:0px;
     padding:10px 20px;
+    margin-top:0;
   }
   .container {
     padding:0;

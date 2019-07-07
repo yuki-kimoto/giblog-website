@@ -7,23 +7,6 @@
     <link rel="stylesheet" type="text/css" href="/css/common.css">
   </head>
 <style>
-  * {
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    -webkit-text-size-adjust:100%;
-    font-weight:normal;
-    font-size:18px;
-  }
-  .header {
-    max-width:100%;
-    width:860px;
-    margin:0 auto -10px auto;
-    padding:0px 0 0px 0;
-  }
-  .header h1 {
-    font-size:24px;
-  }
   .index-head {
     text-align:center;
     background:#009D82;
@@ -58,7 +41,7 @@
   }
   
   .index-start {
-    margin:30px 0;
+    margin:40px auto;
     text-align:center;
   }
   .index-start a {
@@ -67,7 +50,9 @@
     text-decoration:none;
     border-radius:5px;
     display:inline-block;
-    padding:20px 40px;
+    padding:25px 40px;
+    width:80%;
+    max-width:400px;
   }
   
   img {
@@ -105,35 +90,52 @@
   
   .index-features ul {
     overflow:hidden;
+    margin:0 auto;
   }
   .index-features li {
     list-style:none;
     display:block;
     float:left;
-    width:32%;
+    width:32.3%;
     background:white;
-    margin-right:1%;
+    margin-left:0.5%;
+    margin-right:0.5%;
     margin-bottom:5px;
     border-radius:5px;
-    padding:10px;
+    padding:5px;
     height:150px;
     text-align:center;
   }
-@media only screen and (max-width:860px) {
+  .index-features-title {
+    margin-top:10px;
+    margin-bottom:10px;
+    font-weight:bold;
+  }
 
+@media only screen and (max-width:860px) {
+  .index-content {
+    width:98%;;
+    margin:0 auto -10px auto;
+    padding:0px 0 0px 0;
+  }
+  .index-features li {
+    width:100%;
+  }
 }
 </style>
 
 <div class="header">
-  <a href="/"><img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:-30px;"></a>
-  <a style="font-size:15px;text-decoration:none;color:#444;margin-right:18px;"href="/doc.html">Giblogをはじめよう</a>
-  <a style="font-size:15px;text-decoration:none;color:#444;margin-right:18px;"href="https://docjp.giblog.net/">公式ドキュメント</a>
-  <a style="font-size:15px;text-decoration:none;color:#444;margin-right:18px;"href="https://github.com/yuki-kimoto/giblog">リポジトリ</a>
-  <!-- テーマ -->
-  <!-- 機能追加 -->
-  <!-- フォーラム -->
-  <!-- 更新情報 -->
-  <!-- 参加・貢献 -->
+  <div class="header-content">
+    <a href="/"><img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:-30px;"></a>
+    <a style="font-size:15px;text-decoration:none;color:#444;margin-right:18px;"href="/start.html">Giblogをはじめよう</a>
+    <a style="font-size:15px;text-decoration:none;color:#444;margin-right:18px;"href="https://docjp.giblog.net/">公式ドキュメント</a>
+    <a style="font-size:15px;text-decoration:none;color:#444;margin-right:18px;"href="https://github.com/yuki-kimoto/giblog">リポジトリ</a>
+    <!-- テーマ -->
+    <!-- 機能追加 -->
+    <!-- フォーラム -->
+    <!-- 更新情報 -->
+    <!-- 参加・貢献 -->
+  </div>
 </div>
 <div class="index-head">
   <h2>Giblogのご紹介</h2>
@@ -148,7 +150,7 @@
   </div>
 </div>
 <div class="index-start">
-  <a href="/doc.html">Giblogをはじめよう</a>
+  <a href="/start.html">Giblogをはじめよう</a>
 </div>
 
 <div class="index-content">
@@ -156,17 +158,17 @@
   <div style="color:#111">
     <a href="https://new-website-example.giblog.net"><img src="https://github.com/yuki-kimoto/giblog/raw/master/images/giblog-website.png/"></a>
   </div>
-  <div style="margin-top:10px;">
+  <div style="margin-top:15px;font-size:20px;text-align:center">
     <a class="link" href="https://new-website-example.giblog.net">サンプルを見る →</a>
   </div>
 </div>
 
 <div class="index-content">
-  <h3 style="font-size:33px; margin:80px 0 20px 0;text-align:center">ブログは、7日間の最新記事の表示と一覧ページを提供</h3>
+  <h3 style="font-size:33px; margin:80px 0 20px 0;text-align:center">ブログは7日間の最新記事の表示と一覧ページを提供</h3>
   <div style="color:#111">
     <a href="https://new-blog-example.giblog.net/"><img src="https://github.com/yuki-kimoto/giblog/raw/master/images/giblog-blog.png"></a>
   </div>
-  <div style="margin-top:10px;">
+  <div style="margin-top:15px;font-size:20px;text-align:center">
     <a class="link" href="https://new-blog-example.giblog.net/">サンプルを見る →</a>
   </div>
 </div>
@@ -177,40 +179,39 @@
       <h3 style="font-size:34px; margin:80px 0 20px 0;text-align:center;padding-top:30px;">すべてのページはgitで管理、効率的で高速</h2>
       <ul>
         <li>
-          <span class="dashicons dashicons-welcome-widgets-menus"></span>
-          すべてのページをGitで管理<br>
+          <div class="index-features-title">すべてのページをGit管理</div>
           <img src="/images/features-icon/git-icon.png" style="height:80px">
         </li>
         <li>
-          高度なSEO対策<br>
+          <div class="index-features-title">高度なSEO対策</div>
           <img src="/images/features-icon/seo-icon.png" style="height:80px">
         </li>
         <li>
-          レスポンシブ対応<br>
+          <div class="index-features-title">レスポンシブ対応</div>
           <img src="/images/features-icon/responsive-icon.png" style="height:80px">
         </li>
         <li>
-          お問い合わせフォーム<br>
+          <div class="index-features-title">お問い合わせフォーム</div>
           <img src="/images/features-icon/form-icon.png" style="height:80px">
         </li>
         <li>
-          高速な再構築<br>
+          <div class="index-features-title">高速な再構築</div>
           <img src="/images/features-icon/rebuild-icon.png" style="height:80px">
         </li>
         <li>
-          高度なセキュリティ<br>
+          <div class="index-features-title">高度なセキュリティ</div>
           <img src="/images/features-icon/security-icon.png" style="height:80px">
         </li>
         <li>
-          記事の検索・置換が簡単<br>
+          <div class="index-features-title">記事の検索・置換が簡単</div>
           <img src="/images/features-icon/replace-icon.png" style="height:80px">
         </li>
         <li>
-          Windows, Mac OS, Linux対応<br>
+          <div class="index-features-title">Windows Mac Linux対応</div>
           <img src="/images/features-icon/os-icon.png" style="height:80px">
         </li>
         <li>
-          Perlで自由にカスタマイズ<br>
+          <div class="index-features-title">Perlで自由にカスタマイズ</div>
           <img src="/images/features-icon/perl-icon.png" style="height:80px">
         </li>
       </ul>
@@ -218,7 +219,7 @@
   </div>
 </div>
 <div class="index-content" style="text-align:center;">
-  <h3 style="font-size:33px; margin:80px 0 20px 0;text-align:center;">Giblogで製作されたサイトのご紹介</h3>
+  <h3 style="font-size:33px; margin:50px 0 20px 0;text-align:center;">Giblogで製作されたサイトのご紹介</h3>
   <div style="border:1px solid #ddd;border-radius:5px;">
     <a href="https://tutorial.perlzemi.com/"><img src="/images/users/perlzemi-image.png"></a>
   </div>
@@ -234,14 +235,14 @@
   </div>
 </div>
 <div class="index-start">
-  <a href="/doc.html">Giblogを入手</a>
+  <a href="/start.html">Giblogを入手</a>
 </div>
 
 <div class="index-sitemap">
   <ul>
     <li><a style="font-size:15px;text-decoration:none;"href="https://docjp.giblog.net/">ドキュメント</a></li>
     <li><a style="font-size:15px;text-decoration:none;"href="https://metacpan.org/pod/Giblog">CPAN</a></li>
-    <li><a style="font-size:15px;text-decoration:none;"href="/doc.html">Giblogをはじめよう</a></li>
+    <li><a style="font-size:15px;text-decoration:none;"href="/start.html">Giblogをはじめよう</a></li>
     <li><a style="font-size:15px;text-decoration:none;color:#666"href="https://github.com/yuki-kimoto/giblog">リポジトリ</a></li>
   </ul>
 </div>
