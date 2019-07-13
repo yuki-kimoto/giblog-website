@@ -1,9 +1,21 @@
 <!-- header -->
+<script>
+  $(document).ready(function () {
+    $(window).on('resize', function () {
+      var width = $(window).width();
+      
+      if (width > 860) {
+        $('.header-content-menu').show();
+      }
+    });
+  });
+</script>
+
 <div class="header-content">
   <div class="header-content-title">
     <a href="/"><img src="/images/giblog-logo-image-text.png" width="170" alt="Giblog公式サイト" style="vertical-align:-25px;"></a>
   </div>
-  <div class="menu-button">
+  <div class="menu-button" onclick="$('.header-content-menu').toggle();">
     <img src="/images/menu.png" style="width:40px;">
   </div>
   <ul class="header-content-menu">
