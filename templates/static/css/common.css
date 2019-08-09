@@ -289,6 +289,24 @@
     color:red;
   }
 
+  .index-features .special {
+    padding:0;
+  }
+  
+  .index-features li {
+  }
+  .index-features a {
+    display:block;
+    width:100%;
+    color:inherit;
+    text-decoration:none;
+    height:100%;
+    border-radius:5px;
+    padding-top:16px;
+  }
+  .index-features a:hover {
+    background:#ebfcfa;
+  }
 /* Tablet and Smart phone */
 @media only screen and (max-width:860px) {
   .content {
