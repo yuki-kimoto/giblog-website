@@ -1,0 +1,71 @@
+<h2>Giblogで作成したWebサイトにお問い合わせフォームを設置できます</h2>
+
+Giblogは、静的なCMS生成ツールですが、お問い合わせフォームを設置することができます。
+
+
+<div style="text-align:center">
+  <a href="/mail.html">お問い合わせフォームのサンプル</a>
+</div>
+<div style="text-align:center">
+  <a href="/mail.html"><img src="/images/otoiawase-example.png" style="border:1px solid #ddd;width:80%;"></a>
+</div>
+
+お問い合わせフォームは、Giblog自体には含まれません。
+
+Giblogは、静的なCMSツールとして、GiblogのWebサイトの中に、CGIのフォームを埋め込める仕組みを準備しています。
+
+実際のCGIフォームの構成については、Giblog公式サイトのリポジトリの中にある以下の二つのファイルを見てください。
+
+<a href="https://github.com/yuki-kimoto/giblog-website/tree/master/templates">Giblog公式サイトのお問い合わせフォーム</a>
+
+<pre>
+templates/mail.html
+template/static/mail.cgi
+</pre>
+
+「git clone」で、GiblogWebサイトを、そのままコピーできますが、お問い合わせフォームだけを保存する場合は、CGIプログラムのパーミッションは755で、改行コードはLFで、保存してください。
+
+<h3>Webサイトにお問い合わせフォームを埋め込める仕組み</h3>
+
+Giblogは、Webサイトに埋め込むことができるCGIのお問い合わせフォームを次の方法で実現しています。
+
+<h4>お問い合わせフォームは、単純なHTMLのテンプレート</h4>
+
+お問い合わせフォームは、単純なHTMLのファイルです。
+
+
+<pre>
+templates/mail.html
+</pre>
+
+HTMLのformタグを使って、メールフォームを記述しています。
+
+ヘッダとフッタなど、通常のコンテンツと同じ構成で、ラッピングされます。
+
+<h4>メールを送信するCGIプログラム</h4>
+
+<pre>
+template/static/mail.cgi
+</pre>
+
+は、メールを送信するCGIプログラムです。
+
+<h4>Ajax通信で、CGIを呼び出す</h4>
+
+「mail.html」の中には、JavaScriptが記述されており、Ajax通信で「mail.cgi」を呼び出します。
+
+このようにして、お問い合わせフォームを、Webサイトに埋め込む方法を実現しています。
+
+<h3>お問い合わせフォーム以外のCGIで作成したフォームを作成できますか</h3>
+
+はい。メッセージをやりとりするボードや、アンケートフォームなど、CGIプログラムでできることは、すべて実現可能です。
+
+<h3>どのような環境で動きますか</h3>
+
+CGIをサポートしているレンタルサーバーを想定しています。
+
+<h3>CGIフォームを設置した場合のセキュリティはどうなりますか</h3>
+
+CGIフォームを設置した場合のセキュリティは、そのCGIに脆弱性がないかどうかにかかっています。
+
+お問い合わせフォームがサイトと一体になっていることよりも、セキュリティが優先事項の場合は、サイトを完全に静的なものにして、<a href="https://www.google.com/intl/ja_jp/forms/about/">googleフォーム</a>などの外部のWebサービスを利用することもできます。
