@@ -1,0 +1,59 @@
+<h2>GiblogはWindows、Mac OS、Linuxに対応</h2>
+
+GiblogはWindows、Mac OS、Linuxに対応しています。Windows、Mac OSでのローカルPCでの開発、Debian, Ubuntu, CentOS, RedHatなどのLinuxにおけるリモートサーバーでの開発もサポートしています。
+
+<h3>Windowsのサポート</h3>
+
+Windowsでは、疑似的なLinux環境を再現するmsys2というツールを、インストールすることで、Giblogを利用することができます。
+
+以下でインストール方法とGiblogの使い方を解説しています。
+
+<a href="/blog/20190416153053.html">WindowsでWebサイト作成の環境を作る</a>
+
+<h3>Mac OSのサポート</h3>
+
+Mac OSには、Perlがデフォルトインストールされているので、そのまま使い始めることができます。HTMLファイルの自動再構築のために必要となるMojoliciousのインストールも合わせて行っておきましょう。
+
+<pre>
+cpanm Mojolicious
+</pre>
+
+最近のMac OSでは、バージョンによって、Perlのモジュールのインストールが、正しくできないという不具合があったり、将来的には、Perlを含むスクリプト言語を、デフォルトで提供しないという方針が進められているということも聞きます。
+
+確実にインストールを成功させたい場合は、ローカル環境に構築したPerlを使いましょう。perlbrewやplenvというローカル環境にPerlを構築するツールを利用します。
+
+<ul>
+  <li><a href="https://tutorial.perlzemi.com/blog/20110220130464.html">perlbrew - ユーザー環境にPerlをインストールする</a></li>
+  <li><a href="https://tutorial.perlzemi.com/blog/20180816153437.html">plenv - ユーザー環境にPerlをインストールする</a></li>
+</ul>
+
+どちらも似ているツールなので、お好みで選んでください。
+
+この後に以下のコマンドを実行してGiblogをインストールしてください。HTMLファイルの自動再構築のために必要となるMojoliciousのインストールも合わせて行っておきましょう。
+
+<pre>
+cpanm Giblog
+cpanm Mojolicious
+</pre>
+
+<h3>Linuxのサポート</h3>
+
+Debian, Ubuntu, CentOS, RedHatなどのLinuxサーバーにSSHで接続して、リモート環境で、開発を行うこともできます。
+
+リモート環境で開発する場合は、ユーザー環境で開発したいという場合が、多いと思います。
+
+そういう場合は、ローカル環境に構築したPerlを使いましょう。perlbrewやplenvというローカル環境にPerlを構築するツールを利用すると、大丈夫です。
+
+<ul>
+  <li><a href="https://tutorial.perlzemi.com/blog/20110220130464.html">perlbrew - ユーザー環境にPerlをインストールする</a></li>
+  <li><a href="https://tutorial.perlzemi.com/blog/20180816153437.html">plenv - ユーザー環境にPerlをインストールする</a></li>
+</ul>
+
+どちらも似ているツールなので、お好みで選んでください。
+
+この後に以下のコマンドを実行してGiblogをインストールしてください。HTMLファイルの自動再構築のために必要となるMojoliciousのインストールも合わせて行っておきましょう。
+
+<pre>
+cpanm Giblog
+cpanm Mojolicious
+</pre>
