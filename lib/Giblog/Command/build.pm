@@ -74,12 +74,8 @@ sub run {
 <meta name="twitter:site" content="\@perlzemi" />
 <meta name="twitter:title" content="$title" />
 <meta name="twitter:description" content="$description" />
+<meta name="twitter:image" content="$site_url/images/giblog-favicon.png" />
 EOS
-      if (defined $img_src) {
-        $twitter_card .= <<"EOS";
-<meta name="twitter:image" content="$site_url$img_src" />
-EOS
-      }
       
       $meta .= "\n$twitter_card\n";
       
