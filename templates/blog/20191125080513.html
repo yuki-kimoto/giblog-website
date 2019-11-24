@@ -1,0 +1,79 @@
+<h2>Markdownで記事を書けるようにする</h2>
+
+Markdownで記事を書けるようにしてみましょう。GiblogのデフォルトはGiblog記法ですが、Markdownに対応させることもできます。拡張子が「md」だった場合に、マークダウン記法で書けるようにしてみましょう。
+
+<h3>Markdownモジュールのインストール</h3>
+
+Perlには、Markdownの入力をHTMLに変換するモジュールがCPANにはいくつかあります。ここでは、Githubのマークダウン記法に近い記述ができるText::Markdown::Hoedownを使ってみましょう。
+
+<pre>
+cpan Text::Markdown::Hoedown
+</pre>
+
+または
+
+<pre>
+cpanm Text::Markdown::Hoedown
+</pre>
+
+cpanmがインストールされている場合は、cpanmで、cpanしかない場合は、cpanでインストールしましょう。
+
+<h3>Markdownで記事を書くためのプログラムの修正</h3>
+
+Giblogの機能を追加・変更するには、ビルドコマンド「lib/Giblog/Command/build.pm」を修正します。修正を間違って動かなくなった時のために、このファイルをバックアップを取っておくと安全です。
+
+ではビルドコマンドにMarkdownで編集できる機能を追加してみましょう。まず、parse_giblog_syntaxというメソッドが呼ばれている部分を探してください。
+
+<pre>
+package Giblog::Command::build;
+
+use base 'Giblog::Command';
+
+use strict;
+use warnings;
+use utf8;
+
+use File::Basename 'basename';
+
+sub run {
+  # ...
+
+    # Parse Giblog syntax
+    $api->parse_giblog_syntax($data);
+  
+  # ...
+}
+</pre>
+
+この部分を、ファイルの拡張子が「md」であった場合に、Markdownとして解釈して、HTMLを出力するという処理を追加します。
+
+<pre>
+sub run {
+  # ...
+
+    # Parse Markdown syntax
+    if ($data->{file} =~ /\.md$/) {
+      require Text::Markdown::Hoedown;
+      
+      # Convert extenstion from md to html
+      $data->{file} =~ s/\.md$/.html/;
+      
+      # Convert Markdown to HTML
+      $data->{content} = Text::Markdown::Hoedown::markdown($data->{content});
+    }
+    else {
+      # Parse Giblog syntax
+      $api->parse_giblog_syntax($data);
+    }
+  
+  # ...
+}
+</pre>
+
+require文を使って、Text::Markdown::Hoedownを動的にロードしています。
+
+ファイル拡張子が「md」であった場合に、出力のためにhtmlに修正する処理を書いています。
+
+markdown関数を使って、コンテンツをMarkdownからHTMLに変更する処理を書いています。
+
+templatesの中にあるファイルの拡張子を「md」にして、Markdownで記事を書いてみましょう。出力がHTMLになっていれば、成功です。
