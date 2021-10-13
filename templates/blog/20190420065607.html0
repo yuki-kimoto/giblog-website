@@ -1,0 +1,31 @@
+<h2>サイドバーを編集する</h2>
+
+サイドバーを編集してみましょう。
+
+サイトの目次や、補助的な情報を書いたりすることができます。
+
+サイドバーは、以下のファイルに書かれています。
+
+<pre>
+templates/common/side.html
+</pre>
+
+このファイルを開いてみましょう。
+
+Giblogで作成されたWebサイトのサイドバーは以下のようになっています。
+
+<pre>
+<!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    メニュー
+  </div>
+  <ul>
+    <li><a href="/blog/20190416153053.html">Windowsで個人ブログを作る</a></li>
+    <li>Macで個人ブログを作る</li>
+    <li>Linuxで個人ブログを作る</li>
+  </ul>
+</div>
+</pre>
+
+サイドバーを編集したい場合は、この部分を変更してみましょう。

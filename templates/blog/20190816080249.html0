@@ -1,0 +1,132 @@
+<h2>高度なSEO対策 - titleタグとdescriptionの自動設定</h2>
+
+Giblogは、デフォルトで、効果の高いSEO対策が、実施されています。
+
+<h3>titleタグの自動設定</h3>
+
+トップページ「index.html」のタイトルは、giblog.confの「site_title」で設定されているサイトタイトルになります。
+
+<pre>
+use strict;
+use warnings;
+use utf8;
+
+{
+  site_title => '私だけのオリジナルサイト',
+  site_url => 'http://somesite.example',
+}
+</pre>
+
+この場合のトップページのtitleタグは「私だけのオリジナルサイト」になります。
+
+<pre>
+<title>私だけのオリジナルサイト</title>
+</pre>
+
+トップぺージ以外のタイトルは、ページの最初の見出しの後ろに、サイトタイトルをつけたものになります。
+
+トップページ以外のページの例は、たとえば、最初の見だしが
+
+<pre>
+<h2>トマトのおいしい食べ方</h2>
+</pre>
+
+であった場合は、このページのtitleタグは「トマトのおいしい食べ方 - 私だけのオリジナルサイト」になります。
+
+<pre>
+<title>トマトのおいしい食べ方 - 私だけのオリジナルサイト</title>
+</pre>
+
+<h3>descriptionの自動設定</h3>
+
+タグのない最初の段落が、descriptionに自動設定されます。
+
+<pre>
+<h2>トマトのおいしい食べ方</h2>
+
+トマトをおいしく食べるには、どうしたらいいのでしょうか。冷蔵庫で冷やしてみましょう。
+</pre>
+
+<pre>
+<meta name="description" content="トマトをおいしく食べるには、どうしたらいいのでしょうか。冷蔵庫で冷やしてみましょう。">
+</pre>
+
+タグのある最初の段落は、descriptionとしては、認識されないので、SEOで大切な、パンくずリストを書くこともできます。
+
+<pre>
+<ol class="bread" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/"><span itemprop="name">トマト</span></a>
+    <meta itemprop="position" content="1" />
+  </li>
+  &#8250;
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/blog/20101130129876.html"><span itemprop="name">食べ方</span></a>
+    <meta itemprop="position" content="2" />
+  </li>
+  &#8250;
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <span itemprop="name">here</span>
+  </li>
+</ol>
+
+<h2>トマトのおいしい食べ方</h2>
+
+トマトをおいしく食べるには、どうしたらいいのでしょうか。冷蔵庫で冷やしてみましょう。
+</pre>
+
+上記のように、パンくずリストがある場合でも、タグのない最初の段落の内容がdescriptionに設定されます。
+
+<pre>
+<meta name="description" content="トマトをおいしく食べるには、どうしたらいいのでしょうか。冷蔵庫で冷やしてみましょう。">
+</pre>
+
+<h3>titleタグとdescriptionのカスタマイズ</h3>
+
+上記の設定は「lib/Giblog/Command/build.pm」を編集することでカスタマイズすることもできます。
+
+<a href="https://perlzemi.com/">Perl</a>を知っていれば、カスタマイズしやすと思いますが、ページタイトルとサイトタイトルの区切り文字の変更ならば、単純に書き換えるだけです。
+
+<pre>
+lib/Giblog/Command/build.pm
+</pre>
+
+ページタイトルとサイトタイトルの区切り文字「-」を「|」に変えました。
+
+<pre>
+package Giblog::Command::build;
+
+# 省略
+
+sub run {
+  my ($self, @args) = @_;
+  
+  # 省略
+  
+  for my $file (@$files) {
+    
+    # Parse title
+    $api->parse_title_from_first_h_tag($data);
+
+    # Edit title
+    my $site_title = $config->{site_title};
+    if ($data->{file} eq 'index.html') {
+      $data->{title} = $site_title;
+    }
+    else {
+      #
+      # こちらを編集しました
+      #
+      $data->{title} = "$data->{title} | $site_title";
+    }
+
+    # Add page link
+    $api->add_page_link_to_first_h_tag($data, {root => 'index.html'});
+
+    # Parse description
+    $api->parse_description_from_first_p_tag($data);
+  }
+  
+  # 省略
+}
+</pre>

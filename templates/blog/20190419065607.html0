@@ -1,0 +1,32 @@
+<h2>HTMLヘッダを編集する</h2>
+
+HTMLヘッダを編集してみましょう。
+
+HTMLヘッダというのは、タイトル、metaタグ、CSS、JavaScriptの読み込みなど書かれる部分です。
+
+<pre>
+<head>
+  <!-- HTMLヘッダ -->
+</head>
+</pre>
+
+<a href="/blog/20190417121540.html">ヘッダ</a>と名前は似ていますが別のものです。
+
+HTMLヘッダは、以下のファイルに書かれています。
+
+<pre>
+templates/common/meta.html
+</pre>
+
+このファイルを開いてみましょう。
+
+Giblogで作成されたWebサイトのHTMLヘッダは以下のようになっています。
+
+<pre>
+<!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+</pre>
+
+HTMLヘッダを編集したい場合は、この部分を変更してみましょう。

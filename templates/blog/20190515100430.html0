@@ -1,0 +1,133 @@
+<h2>サイドバーを非表示・幅変更・左右入れ替えする</h2>
+
+サイドバーを非表示・幅変更・左右変更しましょう。Giblogで作成されたブログやWebサイトは、サイドバーがデフォルトで設定されています。これを変更したい場合にも対応できます。
+
+サイドバーのデザインを編集するには、次のCSSを編集します。
+
+<pre>
+templates/static/css/common.css
+</pre>
+
+最初に、このファイルを開いてください。
+
+コンテントとサイドバーの設定を探してください。デフォルト設定とスマートフォン用の設定の二つのものがあります。
+
+「@media only screen and (max-width:960px)」より上にあるものが、デフォルト設定、下にあるものがスマートフォン用の設定です。
+
+<pre>
+  /* content */
+  .content {
+    /* コンテントエリアの設定 */
+  }
+
+  /* side */
+  .side {
+    /* サイドバーの設定 */
+  }
+
+/* Tablet and Smart phone */
+@media only screen and (max-width:960px) {
+  .content {
+    /* コンテントエリアの設定 - スマートフォン */
+  }
+  .side {
+    /* サイドバーの設定 - スマートフォン */
+  }
+}
+</pre>
+
+<h3>サイドバーを非表示にする</h3>
+
+<b>スマートフォンの場合だけ、サイドバーを非表示</b>にしたい場合は、次のように記述してください。
+
+<pre>
+  /* content */
+  .content {
+    /* コンテントエリアの設定 */
+  }
+
+  /* side */
+  .side {
+    /* サイドバーの設定 */
+  }
+
+/* Tablet and Smart phone */
+@media only screen and (max-width:960px) {
+  .content {
+    width:100%;
+  }
+  .side {
+    display:none;
+  }
+}
+</pre>
+
+<b>PCとスマートフォンの両方でサイドバーを非表示</b>にしたい場合は、次のように記述してください。
+
+<pre>
+  /* content */
+  .content {
+    width:100%;
+  }
+
+  /* side */
+  .side {
+    display:none;
+  }
+
+/* Tablet and Smart phone */
+@media only screen and (max-width:960px) {
+  .content {
+    width:100%;
+  }
+  .side {
+    display:none;
+  }
+}
+</pre>
+
+<h3>サイドバーの幅を変更する</h3>
+
+サイドバーの幅を変更するには、以下のように設定します。widthとmargin-leftを変更してください。
+
+メインコンテンツが70%、サイドバーが29%、間のマージンを1%に設定する例です。
+
+<pre>
+  /* content */
+  .content {
+    float:left;
+    width:70%;
+  }
+  
+  /* side */
+  .side {
+    float:left;
+    width:29%;
+    margin-left:1%;
+  }
+</pre>
+
+<h3>サイドバーの左右を入れ替える</h3>
+
+サイドバーの左右を入れ替えるには、以下のように設定します。floatの設定をrightに変更し、margin-leftをmargin-rightに変更します。
+
+<pre>
+  /* content */
+  .content {
+    float:right;
+    width:74%;
+  }
+  
+  /* side */
+  .side {
+    float:right;
+    width:25%;
+    margin-right:1%;
+  }
+</pre>
+
+<h3>参考</h3>
+
+サイドバーのデザインの変更のために、CSSの基礎について知りたい場合は、以下の記事を参考にしてください。
+
+<a href="/blog/20190509080917.html">Webサイト作成のためのCSSの基礎</a>

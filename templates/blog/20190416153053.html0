@@ -1,0 +1,304 @@
+<h2>WindowsでWebサイト作成の環境を作る</h2>
+
+Windowsで、Webサイトを作成するための環境を最初に作成しましょう。
+
+「Windows 10 64bit」を想定して解説されますが、Windows 8やWindows 7の32bitでも動くように構成します(予定)。
+
+環境を作るのは、最初は難しく感じると思います。
+
+手順通りにやっていけば、環境が作成できるので、最初のうちは、よくわからないままで大丈夫です。
+
+ここでは、ブログを完成するところまでを解説します。
+
+次のようなブログが作成できますよ。
+
+<ul>
+  <li><a href="http://www.giblog.net/">Giblog - git世代のためのブログ作成ツール</li>
+  <li><a href="https://perlzemi.com/">Perl入門ゼミ - Perlを0から学べる無料テキスト</a></li>
+</ul>
+
+Giblogで作成されたWebサイトも、同じ手順で作成されています。
+
+これらのサイトは、ブログですが、普通のWebサイトを作りたい場合も簡単なのでご安心を。
+
+<a href="https://twitter.com/perlzemi">PerlゼミのTwitter</a>で、ここがうまくいかないんだけどと伝えてくれれば、お答えします。
+
+では、環境の構築に進みましょう。
+
+<h3>msys2をWindowsにインストールする</h3>
+
+最初にmsys2というツールをWindowsにインストールします。
+
+<b>msys2の画面</b>
+<div>
+  <img src="/images/msys2.png">
+</div>
+
+この真っ暗い画面はなんでしょうか? ちょっとびっくりしますね。
+
+少しだけ解説すると、この真っ黒い画面に、コマンドと呼ばれる文字を打ち込んで、Webサイトを作成します。
+
+<b>ブログを作成したい場合</b>
+
+<pre>
+giblog new_blog mysite
+</pre>
+
+<b>シンプルなWebサイトを作成したい場合</b>
+
+<pre>
+giblog new_website mysite
+</pre>
+
+上記のコマンドを実行すれば、Webサイトが完成します。上記のコマンドはPerlで作られていて、これを実行するための環境を作っていきます。
+
+msys2は、上のようなコマンドを実行するためのツールだと考えてくれれば大丈夫です。
+
+「コマンドって?」となっていると思いますが、いまは大丈夫。
+
+<h3>msys2のインストール 10分</h3>
+
+msys2をダウンロードしてインストールしましょう。
+
+<h4>msys2のダウンロード</h4>
+
+msys2をインストールしましょう。64bit版Windowsの場合は64bit版のmsys2を、32bit版のWindowsの場合は32bit版のmsys2を利用しましょう。
+
+確認方法(<a href="https://121ware.com/qasearch/1007/app/servlet/relatedqa?QID=011799">Windows 7</a>, <a href="https://pc-karuma.net/windows8-32bit-64bit-check/">Windows 8</a>, <a href="https://pc-karuma.net/windows10-32bit-64bit-check/">Windows 10</a>)
+
+msys2をダウンロードしましょう。
+
+<ul>
+  <li>
+    <a href="https://sourceforge.net/projects/msys2/files/Base/x86_64/">64bit版- msys2-x86_64-日付.exe</a>
+  </li>
+  <li>
+    <a href="https://sourceforge.net/projects/msys2/files/Base/i686/">32bit版 - msys2-i686-日付.exe</a>
+  </li>
+</ul>
+
+一番上にあるのが、最新版です。クリックして、msys2をデスクトップに、ダウンロードしましょう。
+
+<h4>ユーザー名の確認</h4>
+
+Windowsの「C:\Users」(日本語表示は C:\ユーザー)以下にあるユーザーディレクトリが、以下のように英語になっていることを確認してください。
+
+<pre>
+kimot
+</pre>
+
+もし、以下のように日本語になっている場合は、追加の設定が必要になります。
+
+<pre>
+木本
+</pre>
+
+日本語になっていた場合は、msys2をインストールする前に、環境変数の設定で、変数名に「HOME」を、変数値に「C:\msys64\home\msys2user」のように設定してください。英語であった場合は、以下の手順は飛ばしてください。
+
+<table>
+  <tr>
+    <td>変数名</td>
+    <td>変数値</td>
+  </tr>
+  <tr>
+    <td>HOME</td>
+    <td>C:\msys64\home\msys2user</td>
+  </tr>
+</table>
+
+32bit環境の場合は次のように設定してください。
+
+<table>
+  <tr>
+    <td>変数名</td>
+    <td>変数値</td>
+  </tr>
+  <tr>
+    <td>HOME</td>
+    <td>C:\msys32\home\msys2user</td>
+  </tr>
+</table>
+
+手順は以下を参考にしてください。
+
+<ul>
+  <li><a href="https://www.k-cube.co.jp/wakaba/server/environ.html">環境変数の設定画面を開く(7, 8, 10)</a>
+  <li><a href="http://www.wannko.net/windows10/etc/kankyo.html">環境変数の追加</a>
+</ul>
+
+msys2のホームディレクトリに上記のディレクトリが設定されます。
+
+「msys2user」というディレクトリを、
+
+<h4>msys2のインストール</h4>
+
+デスクトップにあるmsys2のアイコンをダブルクリックします。
+
+次へを押していくと、インストールが始まります。3分くらいかかりますので、待ちましょう。
+
+完了を押すとmsys2が起動しますが、いったん右上のバツを押して終了させましょう。
+
+<h4>msys2の二回目以降の起動</h4>
+
+msys2を一度閉じると、次は、どこから起動したらいいんだろうと迷いますね。
+
+Windowsのスタート－メニューのアプリケーションの一覧からmの目次を探すと「MSYS2 64bit」のディレクトリがあります。
+
+その中に
+
+<ul>
+  <li>
+    MSYS2 MinGW 64bit
+  </li>
+  <li>
+    MSYS2 MINGW 32bit
+  </li>
+  <li>
+    <b>MSYS2 MSYS</b>
+  </li>
+</ul>
+
+がありますが、<b>「MSYS2 MSYS」</b>を起動しましょう。msys2には、3種類の起動スクリプトがありますが、PerlでWebサイトを作る今回の場合は「MSYS2 MSYS」を選択します。
+
+これを間違うと正しくPerlの環境が整えられないので、注意してください。
+
+他の二つは、Windowsネイティブアプリを開発する場合に利用するようです。
+
+デスクトップにショートカットを作成しておくと起動が便利です。その場合は「右クリック」「その他」「ファイルの場所を開く」から「MSYS2 MSYS」を「右クリック」「コピー」して、デスクトップで「貼り付け」です。
+
+お疲れ様です。msys2のインストールが終わりました。
+
+次は、真っ黒の画面で、コマンドを実行して、Perlが実行できる環境を作っていくということをやります。後、半分です。
+
+<h3>Perl環境構築 20分</h3>
+
+msys2でPerlを利用できるようにします。PerlとPerlで必要となる開発環境の一覧をまとめてインストールしましょう。
+
+<pre>
+pacman -S perl perl-CPAN msys2-devel make libcrypt-devel git
+</pre>
+
+上記をコピーして、msys2で「右クリック」→「Paste」するとペーストされます。Enterを押して、上記のコマンドを実行しましょう。
+
+インストールするか聞かれるので「Enter」を押して進めましょう。何を聞かれても「Enter」で大丈夫。
+
+以下がインストールされます。これが、Perlを正しく動かすために必要な最小限の環境です。
+
+<ul>
+  <li>
+    perl (perl)
+  </li>
+  <li>
+    cpan (perl-CPAN)
+  </li>
+  <li>
+    gcc (msys2-devel)
+  </li>
+  <li>
+    make (make)
+  </li>
+  <li>
+    crypt.h (libcrypt-devel)
+  </li>
+</ul>
+
+
+pacmanというのは、msys2のパッケージマネージャーです。パッケージマネージャーは、環境を作るためのツールを、インストール・管理するために用意されているツールです。
+
+<b>ここで一度右上のバツを押して、ターミナルを閉じて、「MSYS2 MSYS」再起動してください。これを行わないと、PATHの設定が正しくされず、cpanコマンドが正しく動きません。</b>
+
+Perlがインストールされているか確認しましょう。
+
+<pre>
+perl -v
+</pre>
+
+以下のように表示されれば、インストールされています。バージョンは、新しい場合もあります。
+
+<pre>
+This is perl 5, version 24, subversion 4 (v5.24.4) built for x86_64-msys-thread-multi
+</pre>
+
+<h4>Webサイト作成ツール</h4>
+
+Webサイト作成ツールとして「Giblog」と「Mojolicious」というPerlのライブラリをインストールします。
+
+Perlのライブラリには、Unix/Linux環境で動くことが想定されているものもあります。以下の設定で、シンボリックリンクが、msys2で正しく動くようにしてください。
+
+<pre>
+export MSYS=winsymlinks
+</pre>
+
+上記をコピー＆ペーストして、Enter。
+
+次に以下のコマンドでPerlのライブラリをインストールします。
+
+<pre>
+cpan Giblog
+cpan Mojolicious
+</pre>
+
+初回はcpanを自動設定するか聞かれるので「Enter」で進めましょう。何を聞かれても「Enter」で大丈夫です。
+
+このインストールが確認できると環境構築の作業は終了です。
+
+<h3>Webサイトの作成</h3>
+
+ようやくここまで来ました。ついに、Webサイトを作成してみましょう。
+
+以下のコマンドでWebサイトを作成できます。
+
+<b>ブログを作成したい場合</b>
+
+<pre>
+giblog new_blog mysite
+</pre>
+
+<b>シンプルなWebサイトを作成したい場合</b>
+
+<pre>
+giblog new_website mysite
+</pre>
+
+Webサイトを作成したら、作成したWebサイトを、ブラウザから確認してみましょう。
+
+以下のコマンドで、Webサイトが見れるようになります。
+
+<pre>
+cd ~/mysite
+morbo serve.pl
+</pre>
+
+コマンドを実行すると、以下のように表示されます。
+
+<pre>
+Server available at http://127.0.0.1:3000
+</pre>
+
+Internet ExploreやFirfoxやChromeなどのWebブラウザのアドレス欄に
+
+<pre>
+http://127.0.0.1:3000
+</pre>
+
+と入力してください。
+
+作成したブログを確認できました。
+
+おめでとうございます!
+
+この後は、サイトを編集したり、記事を追加したりできます。
+
+<h3>トラブルシューティング</h3>
+
+msys2のインストール、Perlのインストール手順が失敗する場合に、ウイルスチェッカー(Avast、マカフィー、ノートン、etc)が、msys2をウイルスソフトだと誤検知する場合がありました。
+
+また、ウイルスチェッカーによって管理者権限で、実行できない場合がありました。
+
+この問題が起こった場合は、msys2のインストーラーを起動する前に、ウイルスチェッカーを一時的に停止して、右クリック「管理者権限として実行」を行ってください。
+
+Windows 10である場合は、デフォルトのウイルスソフトであるWindows Defenderを使えば、問題なくインストールできるようです。
+
+<h3>お願い</h3>
+
+msys2は定期的にアップデートされて、パッケージ名やアップデートコマンドが変わったりするので、この手順でうまくいかない場合は、<a href="https://github.com/yuki-kimoto/perlzemitut">リポジトリ</a>か<a href="https://twitter.com/perlzemi">PerlゼミのTwitter</a>にてお知らせください。
